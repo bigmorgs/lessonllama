@@ -1,11 +1,388 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// LessonLlama Landing Page
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="LessonLlama — Smart lesson planning for IB MYP teachers. Let LessonLlama carry the load." />
+    <title>LessonLlama — Let us carry the load</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      :root {
+        --teal:    #0D9488;
+        --teal-dark: #0F766E;
+        --green:   #16A34A;
+        --amber:   #F59E0B;
+        --cream:   #FAFAF7;
+        --slate:   #1E293B;
+        --slate-mid: #475569;
+        --white:   #FFFFFF;
+      }
+
+      html { scroll-behavior: smooth; }
+
+      body {
+        font-family: 'Nunito', sans-serif;
+        background: var(--cream);
+        color: var(--slate);
+        line-height: 1.6;
+      }
+
+      /* ── NAV ── */
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.2rem 2rem;
+        background: var(--white);
+        box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .nav-logo {
+        font-size: 1.4rem;
+        font-weight: 900;
+        color: var(--teal);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .nav-logo span { color: var(--green); }
+      .nav-cta {
+        background: var(--teal);
+        color: var(--white);
+        padding: 0.55rem 1.3rem;
+        border-radius: 2rem;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: background 0.2s;
+      }
+      .nav-cta:hover { background: var(--teal-dark); }
+
+      /* ── HERO ── */
+      .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 5rem 1.5rem 4rem;
+        background: linear-gradient(160deg, #e6faf8 0%, var(--cream) 60%);
+      }
+      .hero-badge {
+        background: #d1fae5;
+        color: var(--green);
+        font-size: 0.82rem;
+        font-weight: 700;
+        padding: 0.35rem 1rem;
+        border-radius: 2rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+      }
+      .hero h1 {
+        font-size: clamp(2.2rem, 5vw, 3.6rem);
+        font-weight: 900;
+        line-height: 1.15;
+        max-width: 720px;
+        margin-bottom: 1.2rem;
+        color: var(--slate);
+      }
+      .hero h1 em {
+        font-style: normal;
+        color: var(--teal);
+      }
+      .hero p {
+        font-size: 1.15rem;
+        color: var(--slate-mid);
+        max-width: 560px;
+        margin-bottom: 2.5rem;
+      }
+      .hero-mascot {
+        font-size: 7rem;
+        line-height: 1;
+        margin-bottom: 2rem;
+        animation: wobble 3s ease-in-out infinite;
+      }
+      @keyframes wobble {
+        0%, 100% { transform: rotate(-3deg); }
+        50%       { transform: rotate(3deg); }
+      }
+
+      /* ── WAITLIST BOX ── */
+      .waitlist-box {
+        background: var(--white);
+        border-radius: 1.2rem;
+        padding: 2rem 2rem 1.5rem;
+        box-shadow: 0 4px 24px rgba(13,148,136,0.10);
+        width: 100%;
+        max-width: 520px;
+        margin: 0 auto;
+      }
+      .waitlist-box h2 {
+        font-size: 1.15rem;
+        font-weight: 800;
+        margin-bottom: 0.3rem;
+        color: var(--slate);
+      }
+      .waitlist-box p {
+        font-size: 0.9rem;
+        color: var(--slate-mid);
+        margin-bottom: 1.2rem;
+      }
+
+      /* ── SOCIAL PROOF ── */
+      .social-proof {
+        text-align: center;
+        padding: 1.5rem;
+        font-size: 0.88rem;
+        color: var(--slate-mid);
+      }
+      .social-proof strong { color: var(--teal); }
+
+      /* ── FEATURES ── */
+      .features {
+        padding: 5rem 1.5rem;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .section-label {
+        text-align: center;
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--teal);
+        margin-bottom: 0.8rem;
+      }
+      .section-title {
+        text-align: center;
+        font-size: clamp(1.6rem, 3vw, 2.2rem);
+        font-weight: 900;
+        color: var(--slate);
+        margin-bottom: 0.8rem;
+      }
+      .section-sub {
+        text-align: center;
+        color: var(--slate-mid);
+        max-width: 520px;
+        margin: 0 auto 3rem;
+        font-size: 1rem;
+      }
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.5rem;
+      }
+      .feature-card {
+        background: var(--white);
+        border-radius: 1rem;
+        padding: 1.8rem;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      .feature-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(13,148,136,0.12);
+      }
+      .feature-icon {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+      }
+      .feature-card h3 {
+        font-size: 1.05rem;
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+        color: var(--slate);
+      }
+      .feature-card p {
+        font-size: 0.92rem;
+        color: var(--slate-mid);
+        line-height: 1.6;
+      }
+
+      /* ── FOR WHO ── */
+      .for-who {
+        background: linear-gradient(135deg, var(--teal) 0%, var(--green) 100%);
+        color: var(--white);
+        padding: 5rem 1.5rem;
+        text-align: center;
+      }
+      .for-who .section-label { color: #99f6e4; }
+      .for-who .section-title { color: var(--white); }
+      .for-who .section-sub   { color: #ccfbf1; }
+      .pills {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+        margin-top: 2rem;
+      }
+      .pill {
+        background: rgba(255,255,255,0.15);
+        border: 1px solid rgba(255,255,255,0.3);
+        color: var(--white);
+        padding: 0.55rem 1.2rem;
+        border-radius: 2rem;
+        font-size: 0.92rem;
+        font-weight: 600;
+        backdrop-filter: blur(4px);
+      }
+
+      /* ── BOTTOM CTA ── */
+      .bottom-cta {
+        padding: 5rem 1.5rem;
+        text-align: center;
+        background: var(--cream);
+      }
+      .bottom-cta h2 {
+        font-size: clamp(1.6rem, 3vw, 2.4rem);
+        font-weight: 900;
+        margin-bottom: 1rem;
+        color: var(--slate);
+      }
+      .bottom-cta p {
+        color: var(--slate-mid);
+        margin-bottom: 2rem;
+        font-size: 1rem;
+      }
+      .btn-primary {
+        display: inline-block;
+        background: var(--teal);
+        color: var(--white);
+        padding: 0.9rem 2.2rem;
+        border-radius: 2rem;
+        font-weight: 800;
+        font-size: 1.05rem;
+        text-decoration: none;
+        transition: background 0.2s, transform 0.15s;
+      }
+      .btn-primary:hover {
+        background: var(--teal-dark);
+        transform: translateY(-2px);
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        background: var(--slate);
+        color: #94a3b8;
+        text-align: center;
+        padding: 2rem 1.5rem;
+        font-size: 0.85rem;
+      }
+      footer a { color: #94a3b8; text-decoration: none; }
+      footer a:hover { color: var(--white); }
+      .footer-inner {
+        max-width: 800px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 600px) {
+        nav { padding: 1rem 1.2rem; }
+        .hero { padding: 3.5rem 1.2rem 3rem; }
+        .waitlist-box { padding: 1.5rem; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- NAV -->
+    <nav>
+      <a href="/" class="nav-logo">🦙 Lesson<span>Llama</span></a>
+      <a href="#waitlist" class="nav-cta">Join Waitlist</a>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-badge">🚀 Coming Soon — Join the Waitlist</div>
+      <div class="hero-mascot">🦙</div>
+      <h1>Let LessonLlama <em>carry the load</em></h1>
+      <p>AI-assisted lesson and unit planning for IB MYP teachers. Spend less time planning, more time teaching.</p>
+
+      <div class="waitlist-box" id="waitlist">
+        <h2>Be first through the gate 🎉</h2>
+        <p>Join the waitlist and get early access when we launch.</p>
+        <iframe data-tally-src="https://tally.so/embed/zxbkLM?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="277" frameborder="0" marginheight="0" marginwidth="0" title="Lesson Llama Wait List"></iframe>
+        <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
+      </div>
+    </section>
+
+    <div class="social-proof">
+      Built by an IB MYP teacher, for IB MYP teachers 🌍
+    </div>
+
+    <!-- FEATURES -->
+    <section class="features">
+      <p class="section-label">What LessonLlama does</p>
+      <h2 class="section-title">Heavy lifting, handled</h2>
+      <p class="section-sub">LessonLlama takes the repetitive, time-consuming parts of planning off your plate.</p>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">📋</div>
+          <h3>Unit Planner Builder</h3>
+          <p>Generate IB MYP-aligned unit planners in minutes. Just add your context and let LessonLlama do the heavy lifting.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📚</div>
+          <h3>Lesson Sequencing</h3>
+          <p>Plan coherent lesson sequences that flow naturally from your unit goals and criteria.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <h3>MYP Criteria Aligned</h3>
+          <p>Every suggestion is grounded in MYP framework requirements — no manual cross-referencing needed.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>AI-Assisted, Teacher-Led</h3>
+          <p>LessonLlama suggests, you decide. Stay in control while saving hours every week.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOR WHO -->
+    <section class="for-who">
+      <p class="section-label">Who it's for</p>
+      <h2 class="section-title">Made for international school teachers</h2>
+      <p class="section-sub">Wherever you teach, LessonLlama speaks your planning language.</p>
+      <div class="pills">
+        <span class="pill">🌏 Southeast Asia</span>
+        <span class="pill">🌍 Middle East</span>
+        <span class="pill">🌎 Europe</span>
+        <span class="pill">📐 Design Technology</span>
+        <span class="pill">🔬 Sciences</span>
+        <span class="pill">📖 Humanities</span>
+        <span class="pill">🎨 Arts</span>
+        <span class="pill">🌐 All MYP Subjects</span>
+      </div>
+    </section>
+
+    <!-- BOTTOM CTA -->
+    <section class="bottom-cta">
+      <h2>Ready to lighten the load? 🦙</h2>
+      <p>Join teachers already on the waitlist for early access.</p>
+      <a href="#waitlist" class="btn-primary">Join the Waitlist</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-inner">
+        <div>🦙 <strong style="color:#e2e8f0">LessonLlama</strong> — Built with ❤️ for IB MYP teachers</div>
+        <div>© 2026 LessonLlama. All rights reserved.</div>
+      </div>
+    </footer>
+
+  </body>
+</html>
