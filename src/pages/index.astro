@@ -68,6 +68,16 @@
         object-fit: contain;
       }
       .nav-logo span { color: var(--green); }
+      .nav-right { display: flex; align-items: center; gap: 1.5rem; }
+      .nav-links { display: flex; align-items: center; gap: 1.5rem; }
+      .nav-links a {
+        color: var(--slate-mid);
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.95rem;
+        transition: color 0.2s;
+      }
+      .nav-links a:hover { color: var(--teal); }
       .nav-cta {
         background: var(--teal);
         color: var(--white);
@@ -419,7 +429,13 @@
         <img src="/lucy.png" alt="Lucy the Lesson Llama mascot" />
         Lesson<span>Llama</span>
       </a>
-      <a href="#waitlist" class="nav-cta">Join Waitlist</a>
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/blog">Blog</a>
+        </div>
+        <a href="#waitlist" class="nav-cta">Join Waitlist</a>
+      </div>
     </nav>
 
     <!-- HERO -->
