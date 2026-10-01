@@ -21,7 +21,7 @@ Your plans are yours. You can export them at any time, and you can delete your a
 
 Lesson Llama is operated by Craig Morgan, trading as Lesson Llama.
 
-For anything in this policy, including requests about your own data, contact lucylessonllama.app.
+For anything in this policy, including requests about your own data, contact lucy@lessonllama.app.
 
 Where the UK or EU General Data Protection Regulation applies, we are the "controller" of the personal data described below.
 
@@ -117,7 +117,7 @@ No system is perfectly secure. If a breach affects your personal data and is lik
 
 Lesson Llama is for teachers and other education professionals. It is not directed at children, and we do not knowingly create accounts for anyone under 16.
 
-If you believe a child has created an account, tell us at [CONTACT EMAIL — e.g. hello@lessonllama.app] and we will remove it.
+If you believe a child has created an account, tell us at lucy@lessonllama.app and we will remove it.
 
 ## Changes to this policy
 

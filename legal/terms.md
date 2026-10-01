@@ -9,11 +9,11 @@ _Last updated 24 September 2026_
 
 ## These terms
 
-These terms are the agreement between you and [LEGAL ENTITY — e.g. "Craig Morgan, trading as Lesson Llama"], [BUSINESS ADDRESS], for your use of Lesson Llama.
+These terms are the agreement between you and Craig Morgan, trading as Lesson Llama, Kuala Lumpur, for your use of Lesson Llama.
 
 By creating an account you accept them. If you do not accept them, do not create an account.
 
-Questions about them go to [CONTACT EMAIL — e.g. hello@lessonllama.app].
+Questions about them go to lucy@lessonllama.app.
 
 ## What Lesson Llama is
 
@@ -23,7 +23,7 @@ It is a tool for your own professional planning. It is not a student information
 
 ## Your account
 
-You need an account, and you are responsible for what happens under it. Keep your password to yourself, and tell us promptly at [CONTACT EMAIL — e.g. hello@lessonllama.app] if you think someone else has access.
+You need an account, and you are responsible for what happens under it. Keep your password to yourself, and tell us promptly at lucy@lessonllama.app if you think someone else has access.
 
 Use a personal email address, not one issued by your school. Lesson Llama is built so that your planning follows you between schools, and a school address stops working the day you leave — taking your account with it. We cannot recover an account whose email address you no longer control.
 
@@ -67,7 +67,7 @@ You can cancel at any time, yourself, from the billing portal in the app. You do
 
 When you cancel, your plan stays active until the end of the period you have already paid for. We do not pro-rate a cancellation mid-period except where these terms or the law say otherwise.
 
-The Professional plan carries a 30-day money-back guarantee: if you are not satisfied, email [CONTACT EMAIL — e.g. hello@lessonllama.app] within 30 days of your first payment and we will refund it in full.
+The Professional plan carries a 30-day money-back guarantee: if you are not satisfied, email lucy@lessonllama.app within 30 days of your first payment and we will refund it in full.
 
 If you are a consumer in the UK or EEA you also have a statutory right to cancel within 14 days. Because the service is available to you immediately, you agree that it begins at once; where you then cancel within that period we may retain a proportionate amount for what you have used. Nothing in these terms limits your statutory rights.
 
@@ -121,7 +121,7 @@ If you do not accept a change, you may cancel and we will refund the unused part
 
 ## Law and disputes
 
-These terms are governed by the law of [JURISDICTION — e.g. Malaysia], and the courts of [JURISDICTION — e.g. Malaysia] have jurisdiction.
+These terms are governed by the law of Malaysia, and the courts of Malaysia have jurisdiction.
 
 If you are a consumer, this does not deprive you of the protection of the mandatory law of the country you live in, nor of the right to bring proceedings there.
 
