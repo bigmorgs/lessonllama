@@ -1,0 +1,9 @@
+---
+// Privacy Policy — content lives in /legal/privacy.md
+import LegalLayout from '../layouts/LegalLayout.astro';
+import { Content, frontmatter } from '../../legal/privacy.md';
+---
+
+<LegalLayout title={frontmatter.title} description={frontmatter.description}>
+  <Content />
+</LegalLayout>

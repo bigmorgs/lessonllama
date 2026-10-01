@@ -1,0 +1,178 @@
+---
+// Shared layout for legal pages (privacy policy, terms of service)
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#0D9488" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      :root {
+        --teal:      #0D9488;
+        --teal-dark: #0F766E;
+        --teal-light:#E6FAF8;
+        --green:     #16A34A;
+        --green-light:#D1FAE5;
+        --cream:     #FAFAF7;
+        --slate:     #1E293B;
+        --slate-mid: #475569;
+        --white:     #FFFFFF;
+      }
+
+      body {
+        font-family: 'Nunito', sans-serif;
+        background: var(--cream);
+        color: var(--slate);
+        line-height: 1.6;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* ── NAV ── */
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.2rem 2rem;
+        background: var(--white);
+        box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .nav-logo {
+        font-size: 1.4rem;
+        font-weight: 900;
+        color: var(--teal);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+      .nav-logo img {
+        width: 36px;
+        height: 36px;
+        object-fit: contain;
+      }
+      .nav-logo span { color: var(--green); }
+      .nav-right { display: flex; align-items: center; gap: 1.5rem; }
+      .nav-links { display: flex; align-items: center; gap: 1.5rem; }
+      .nav-links a {
+        color: var(--slate-mid);
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.95rem;
+        transition: color 0.2s;
+      }
+      .nav-links a:hover { color: var(--teal); }
+      .nav-cta {
+        background: var(--teal);
+        color: var(--white);
+        padding: 0.55rem 1.3rem;
+        border-radius: 2rem;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: background 0.2s;
+      }
+      .nav-cta:hover { background: var(--teal-dark); }
+
+      /* ── LEGAL CONTENT ── */
+      main {
+        flex: 1;
+        width: 100%;
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 4rem 1.5rem 5rem;
+      }
+      main :global(h1) {
+        font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+        font-weight: 900;
+        line-height: 1.15;
+        margin-bottom: 0.5rem;
+      }
+      main :global(h2) {
+        font-size: 1.3rem;
+        font-weight: 800;
+        line-height: 1.3;
+        margin: 2.5rem 0 0.75rem;
+      }
+      main :global(p) { color: var(--slate-mid); }
+      main :global(p + p) { margin-top: 1rem; }
+      main :global(a) { color: var(--teal); font-weight: 700; }
+
+      /* ── FOOTER ── */
+      footer {
+        background: var(--slate);
+        color: #94a3b8;
+        text-align: center;
+        padding: 2rem 1.5rem;
+        font-size: 0.85rem;
+      }
+      footer a { color: #94a3b8; text-decoration: none; }
+      footer a:hover { color: var(--white); }
+      .footer-inner {
+        max-width: 800px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      @media (max-width: 600px) {
+        nav { padding: 1rem 1.2rem; }
+        main { padding: 3rem 1.2rem 4rem; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- NAV -->
+    <nav>
+      <a href="/" class="nav-logo">
+        <img src="/lucy.png" alt="Lucy the Lesson Llama mascot" />
+        Lesson<span>Llama</span>
+      </a>
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/blog">Blog</a>
+        </div>
+        <a href="/#waitlist" class="nav-cta">Join Waitlist</a>
+      </div>
+    </nav>
+
+    <main>
+      <slot />
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-inner">
+        <div><strong style="color:#e2e8f0">Lesson Llama</strong> — Built with ❤️ for teachers everywhere</div>
+        <div><a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms of Service</a></div>
+        <div>© 2026 Lesson Llama. All rights reserved.</div>
+      </div>
+    </footer>
+
+  </body>
+</html>

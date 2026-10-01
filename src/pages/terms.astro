@@ -1,0 +1,9 @@
+---
+// Terms of Service — content lives in /legal/terms.md
+import LegalLayout from '../layouts/LegalLayout.astro';
+import { Content, frontmatter } from '../../legal/terms.md';
+---
+
+<LegalLayout title={frontmatter.title} description={frontmatter.description}>
+  <Content />
+</LegalLayout>
